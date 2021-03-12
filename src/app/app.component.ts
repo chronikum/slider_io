@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, OnInit } from '@angular/core';
 import { SliderConfiguration } from './models/SliderConfiguration';
 
 @Component({
@@ -6,7 +6,12 @@ import { SliderConfiguration } from './models/SliderConfiguration';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+
+  /**
+   * Sliders updater event listener
+   */
+  slidersUpdater = new EventEmitter<SliderConfiguration[]>();
 
   sliderConfigurations: SliderConfiguration[] = [
     {
@@ -27,6 +32,13 @@ export class AppComponent {
   value = 0;
   vertical = false;
   tickInterval = 1;
+
+  /**
+   * Init, setup slider collection update listener
+   */
+  ngOnInit(): void {
+    this.slidersUpdater.subscribe((sliders: SliderConfiguration[]) => this.sliderConfigurations = sliders);
+  }
 
   getSliderTickInterval(): number | 'auto' {
     if (this.showTicks) {
