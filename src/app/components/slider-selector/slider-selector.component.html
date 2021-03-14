@@ -15,15 +15,15 @@
         <mat-label>Max value</mat-label>
         <input matInput type="number" [(ngModel)]="max">
       </mat-form-field>
-      <mat-form-field class="example-margin">
-        <mat-label>Step size</mat-label>
-        <input matInput type="number" [(ngModel)]="step">
-      </mat-form-field>
-      <mat-button-toggle-group name="fontStyle" aria-label="Font Style" [value]="0">
-        <mat-button-toggle [value]="0" (click)="colorMode = 0" value="bold">Standard</mat-button-toggle>
-        <mat-button-toggle [value]="1" (click)="colorMode = 1" value="bold">Blau</mat-button-toggle>
-        <mat-button-toggle [value]="2" (click)="colorMode = 2" value="bold">Rot</mat-button-toggle>
-      </mat-button-toggle-group>
+      <br>
+      <div style="display: flex; flex-direction: column;">
+        <mat-button-toggle-group name="fontStyle" aria-label="Font Style" [value]="0">
+          <mat-button-toggle [value]="0" (click)="colorMode = 0">Standard</mat-button-toggle>
+          <mat-button-toggle [value]="1" (click)="colorMode = 1">Blau</mat-button-toggle>
+          <mat-button-toggle [value]="2" (click)="colorMode = 2">Rot</mat-button-toggle>
+        </mat-button-toggle-group>
+        <label class="mat-small">Mehr Farben folgen.</label>
+      </div>
     </section>
 
     <section class="example-section">
@@ -54,8 +54,7 @@
           [colorMode]="colorMode"
           [showTicks]="false"
           [invert]="invert"
-          [thumbLabel]="thumbLabel"
-          #slider>
+          [thumbLabel]="thumbLabel">
       </app-slider>
   </div>
   <div [formGroup]="rightGroup">
