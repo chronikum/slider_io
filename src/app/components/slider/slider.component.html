@@ -16,4 +16,5 @@
     </mat-slider>
     <label *ngIf="!vertical" matSuffix>{{right}}</label>
     <p *ngIf="vertical">{{right}}</p>
+    <button *ngIf="presentationMode" (click)="deleteMe.next(this.sliderId)" style="float: right;" mat-raised-button color="warn">Entfernen</button>
 </div>

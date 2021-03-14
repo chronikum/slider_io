@@ -48,6 +48,11 @@ export class SliderSelectorComponent implements OnInit {
 
   ngOnInit(): void {
 
+    // setup listener if slider gets deleted
+    this.slidersUpdater?.subscribe((updatedArray: SliderConfiguration[]) => {
+      console.log("SLIDERS GET UPDATED")
+      this.sliderConfigurations = updatedArray
+    });
   }
 
   constructor(
@@ -97,6 +102,7 @@ export class SliderSelectorComponent implements OnInit {
     // invert?: boolean,
     // thumbLabel?: boolean
     let sliderConfiguration: SliderConfiguration = {
+      sliderId: Math.floor(Math.random() * 87124687),
       vertical: this.vertical,
       max: this.max,
       min: this.min,

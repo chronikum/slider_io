@@ -10,7 +10,7 @@
 </mat-card>
 
 <mat-card class="example-result-card">
-  <mat-card-content>
+  <mat-card-content  id="captureArea" #captureArea>
     <div *ngFor="let slider of sliderConfigurations">
       <app-slider
         [invert]="slider.invert || false"
@@ -18,13 +18,19 @@
         [min]="slider.min || 0"
         [step]="slider.step || 1"
         [showTicks]="false"
+        [sliderId]="slider.sliderId"
         [value]="slider.value || 0"
+        (deleteMe)="deleteSlider($event)"
+        [presentationMode]="true"
         [colorMode]="slider.colorMode || 0"
         [thumbLabel]="slider.thumbLabel || false"
         [vertical]="slider.vertical || false"
         [left]="slider.left || ''"
         [right]="slider.right || ''">
-    </app-slider>
+      </app-slider>
+    </div>
+    <div *ngIf="sliderConfigurations.length == 0">
+      Sie haben noch keine Slider hinzugefügt.
     </div>
   </mat-card-content>
 </mat-card>

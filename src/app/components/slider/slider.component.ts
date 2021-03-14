@@ -24,8 +24,11 @@ export class SliderComponent implements OnInit {
   @Input() tickInterval = 1;
   @Input() left: string = "";
   @Input() right: string = "";
+  @Input() presentationMode: boolean = false;
+  @Input() sliderId: number = -1;
 
   @Output() change = new EventEmitter<any>();
+  @Output() deleteMe = new EventEmitter<number>();
 
   constructor() { }
 

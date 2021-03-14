@@ -1,4 +1,5 @@
 export interface SliderConfiguration {
+    sliderId: number,
     left?: string,
     right?: string,
     vertical?: boolean,
