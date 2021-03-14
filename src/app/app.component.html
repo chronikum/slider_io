@@ -1,3 +1,4 @@
+<app-browser-banner></app-browser-banner>
 <p>
   <mat-toolbar>
     <span>ZfM Slider Creator</span>
@@ -8,8 +9,8 @@
 
   </app-slider-selector>
   <div *ngIf="sliderConfigurations.length !== 0">
-    <button mat-button (click)="capturePNG()">PNG herunterladen (Nicht transparent)</button>
-    <button mat-button (click)="captureSVG()">SVG herunterladen (transparent)</button>
+    <button mat-raised-button (click)="capturePNG()">PNG herunterladen (Transparent)</button>
+    <button mat-raised-button (click)="captureSVG()">SVG herunterladen (transparent)</button>
   </div>
 </mat-card>
 

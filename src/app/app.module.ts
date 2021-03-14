@@ -16,6 +16,7 @@ import { SliderComponent } from './components/slider/slider.component';
 import { ColorPickerModule } from 'ngx-color-picker';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { BrowserBannerComponent } from './components/browser-banner/browser-banner.component';
 
 
 
@@ -24,7 +25,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
   declarations: [
     AppComponent,
     SliderSelectorComponent,
-    SliderComponent
+    SliderComponent,
+    BrowserBannerComponent
   ],
   imports: [
     BrowserModule,
