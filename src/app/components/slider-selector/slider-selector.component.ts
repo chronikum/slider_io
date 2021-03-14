@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { SliderConfiguration } from 'src/app/models/SliderConfiguration';
 
 @Component({
@@ -11,6 +12,20 @@ export class SliderSelectorComponent implements OnInit {
   sliderConfigurations: SliderConfiguration[] = [];
 
   @Input() slidersUpdater?: EventEmitter<SliderConfiguration[]>;
+
+  backgroundColor: any;
+
+  fillColor: any;
+
+  /**
+   * FormGroup right
+   */
+  rightGroup: FormGroup;
+
+  /**
+   * FormGroup left
+   */
+  leftGroup: FormGroup;
 
   /**
    * Slider Config
@@ -26,9 +41,32 @@ export class SliderSelectorComponent implements OnInit {
   value = 0;
   vertical = false;
   tickInterval = 1;
+  left = "";
+  right = "";
 
   ngOnInit(): void {
 
+  }
+
+  constructor(
+    private formBuilder: FormBuilder,
+  ) {
+    this.rightGroup = this.formBuilder.group({
+      right: [''],
+    });
+    this.leftGroup = this.formBuilder.group({
+      left: [''],
+    });
+  }
+
+  /**
+   * Get slider value
+   * @param event 
+   */
+  setSliderValue(event: any) {
+    console.log(event.value)
+    this.value = event.value;
+    console.log(this.value)
   }
 
 
@@ -64,7 +102,11 @@ export class SliderSelectorComponent implements OnInit {
       value: this.value,
       invert: this.invert,
       thumbLabel: this.thumbLabel,
+      fillColor: this.fillColor,
+      left: this.leftGroup.get('left')?.value,
+      right: this.rightGroup.get('right')?.value,
     }
+    console.log(this.fillColor);
     this.sliderConfigurations.push(sliderConfiguration);
     if (this.slidersUpdater) {
       this.slidersUpdater.next(this.sliderConfigurations);

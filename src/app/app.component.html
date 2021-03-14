@@ -7,17 +7,18 @@
 <mat-card class="example-result-card">
   <mat-card-content>
     <div *ngFor="let slider of sliderConfigurations">
-      <mat-slider
-        class="example-margin"
-        [invert]="slider.invert"
-        [max]="slider.max"
-        [min]="slider.min"
-        [step]="slider.step"
-        [thumbLabel]="slider.thumbLabel"
-        [tickInterval]="1"
-        [value]="slider.value"
-        [vertical]="slider.vertical">
-    </mat-slider>
+      <app-slider
+        [invert]="slider.invert || false"
+        [max]="slider.max || 100"
+        [min]="slider.min || 0"
+        [step]="slider.step || 1"
+        [showTicks]="false"
+        [value]="slider.value || 0"
+        [thumbLabel]="slider.thumbLabel || false"
+        [vertical]="slider.vertical || false"
+        [left]="slider.left || ''"
+        [right]="slider.right || ''">
+    </app-slider>
     </div>
   </mat-card-content>
 </mat-card>

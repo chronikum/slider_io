@@ -10,14 +10,17 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 import { SliderSelectorComponent } from './components/slider-selector/slider-selector.component';
-
+import { SliderComponent } from './components/slider/slider.component';
+import { ColorPickerModule } from 'ngx-color-picker';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    SliderSelectorComponent
+    SliderSelectorComponent,
+    SliderComponent
   ],
   imports: [
     BrowserModule,
@@ -30,6 +33,8 @@ import { SliderSelectorComponent } from './components/slider-selector/slider-sel
     FormsModule,
     MatInputModule,
     ReactiveFormsModule,
+    ColorPickerModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

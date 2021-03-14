@@ -22,17 +22,6 @@
       </section>
   
       <section class="example-section">
-        <mat-checkbox class="example-margin" [(ngModel)]="showTicks">Show ticks</mat-checkbox>
-        <mat-checkbox class="example-margin" [(ngModel)]="autoTicks" *ngIf="showTicks">
-          Auto ticks
-        </mat-checkbox>
-        <mat-form-field class="example-margin" *ngIf="showTicks && !autoTicks">
-          <mat-label>Tick interval</mat-label>
-          <input matInput type="number" [(ngModel)]="tickInterval">
-        </mat-form-field>
-      </section>
-  
-      <section class="example-section">
         <mat-checkbox class="example-margin" [(ngModel)]="thumbLabel">Show thumb label</mat-checkbox>
       </section>
   
@@ -41,26 +30,44 @@
         <mat-checkbox class="example-margin" [(ngModel)]="invert">Inverted</mat-checkbox>
       </section>
   
-      <section class="example-section">
-        <mat-checkbox class="example-margin" [(ngModel)]="disabled">Disabled</mat-checkbox>
-      </section>
-  
+      <div>
+        <label>Allgemeine Background Color </label>
+        <input [(colorPicker)]="backgroundColor" [style.background]="backgroundColor"/>
+      </div>
+
+      <div>
+        <label>Fill-Color des Sliders</label>
+        <input [(colorPicker)]="fillColor" [style.background]="fillColor"/>
+      </div>
     </mat-card-content>
   </mat-card>
-
-  <mat-card>
-      <h3>Preview</h3>
-      <mat-slider
-        class="example-margin"
-        [disabled]="disabled"
-        [invert]="invert"
-        [max]="max"
-        [min]="min"
-        [step]="step"
-        [thumbLabel]="thumbLabel"
-        [tickInterval]="getSliderTickInterval()"
-        [(ngModel)]="value"
-        [vertical]="vertical">
-    </mat-slider>
-    <button (click)="addSlider()"> Add this slider</button>
+  <h3>Preview</h3>
+  <mat-card style="display: flex">
+    <div [formGroup]="leftGroup">
+      <mat-form-field  appearance="outline">
+        <input matInput [formControlName]="'left'" placeholder="Text links">
+       </mat-form-field>
+    </div>
+    <div>
+      <app-slider
+          [disabled]="disabled"
+          (change)="setSliderValue($event)"
+          [invert]="invert"
+          [max]="max"
+          [min]="min"
+          [step]="step"
+          [showTicks]="false"
+          [thumbLabel]="thumbLabel"
+          [vertical]="vertical"
+          [left]="left"
+          [right]="right"
+          #slider>
+      </app-slider>
+  </div>
+    <div [formGroup]="rightGroup">
+      <mat-form-field  appearance="outline">
+        <input matInput [formControlName]="'right'" placeholder="Text rechts">
+       </mat-form-field>
+    </div>
   </mat-card>
+  <button mat-raised-button (click)="addSlider()">Diesen Slider hinzufügen</button>

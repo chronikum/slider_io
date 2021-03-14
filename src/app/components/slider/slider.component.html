@@ -1,0 +1,18 @@
+<div>
+    <label *ngIf="!vertical" matPrefix>{{left}}</label>
+    <p *ngIf="vertical">{{left}}</p>
+    <mat-slider
+        class="example-margin"
+        [disabled]="disabled"
+        [invert]="invert"
+        [max]="max"
+        [value]="value"
+        [min]="min"
+        [step]="step"
+        [thumbLabel]="thumbLabel"
+        (change)="valueChange($event)"
+        [vertical]="vertical">
+    </mat-slider>
+    <label *ngIf="!vertical" matSuffix>{{right}}</label>
+    <p *ngIf="vertical">{{right}}</p>
+</div>
