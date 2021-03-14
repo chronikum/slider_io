@@ -7,10 +7,14 @@
   <app-slider-selector [slidersUpdater]="slidersUpdater">
 
   </app-slider-selector>
+  <div *ngIf="sliderConfigurations.length !== 0">
+    <button mat-button (click)="capturePNG()">PNG herunterladen (Nicht transparent)</button>
+    <button mat-button (click)="captureSVG()">SVG herunterladen (transparent)</button>
+  </div>
 </mat-card>
 
 <mat-card class="example-result-card">
-  <mat-card-content  id="captureArea" #captureArea>
+  <mat-card-content #captureArea>
     <div *ngFor="let slider of sliderConfigurations">
       <app-slider
         [invert]="slider.invert || false"
@@ -21,7 +25,7 @@
         [sliderId]="slider.sliderId"
         [value]="slider.value || 0"
         (deleteMe)="deleteSlider($event)"
-        [presentationMode]="true"
+        [presentationMode]="presentationMode"
         [colorMode]="slider.colorMode || 0"
         [thumbLabel]="slider.thumbLabel || false"
         [vertical]="slider.vertical || false"
