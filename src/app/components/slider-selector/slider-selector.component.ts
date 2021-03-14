@@ -13,9 +13,9 @@ export class SliderSelectorComponent implements OnInit {
 
   @Input() slidersUpdater?: EventEmitter<SliderConfiguration[]>;
 
-  backgroundColor: any;
+  backgroundColor = '#000000';
 
-  fillColor: any;
+  fillColor = '#ffd740';
 
   /**
    * FormGroup right
@@ -43,6 +43,8 @@ export class SliderSelectorComponent implements OnInit {
   tickInterval = 1;
   left = "";
   right = "";
+  colorMode = 0;
+  customColors: boolean = false;
 
   ngOnInit(): void {
 
@@ -102,7 +104,7 @@ export class SliderSelectorComponent implements OnInit {
       value: this.value,
       invert: this.invert,
       thumbLabel: this.thumbLabel,
-      fillColor: this.fillColor,
+      colorMode: this.colorMode,
       left: this.leftGroup.get('left')?.value,
       right: this.rightGroup.get('right')?.value,
     }

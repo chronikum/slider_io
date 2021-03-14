@@ -11,6 +11,7 @@ export class SliderComponent implements OnInit {
 
   @Input() control?: FormControl;
   @Input() autoTicks = false;
+  @Input() colorMode = 0;
   @Input() disabled = false;
   @Input() invert = false;
   @Input() max = 100;
@@ -37,6 +38,23 @@ export class SliderComponent implements OnInit {
    */
   valueChange(event: any) {
     this.change.next(event);
+  }
+
+  /**
+   * Returns a color for different modes
+   */
+  getColorMode(): string {
+    switch (this.colorMode) {
+      case 0:
+        return 'accent';
+      case 1:
+        return 'primary';
+      case 2:
+        return 'warn';
+      case 3:
+        return 'background';
+    }
+    return 'accent'
   }
 
 }

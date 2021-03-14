@@ -14,6 +14,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { SliderSelectorComponent } from './components/slider-selector/slider-selector.component';
 import { SliderComponent } from './components/slider/slider.component';
 import { ColorPickerModule } from 'ngx-color-picker';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatToolbarModule } from '@angular/material/toolbar';
+
+
 
 
 @NgModule({
@@ -34,7 +38,9 @@ import { ColorPickerModule } from 'ngx-color-picker';
     MatInputModule,
     ReactiveFormsModule,
     ColorPickerModule,
-    MatButtonModule
+    MatButtonModule,
+    MatButtonToggleModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,73 +1,70 @@
 <mat-card>
-    <mat-card-content>
-      <h2 class="example-h2">Slider configuration</h2>
-  
-      <section class="example-section">
-        <mat-form-field class="example-margin">
-          <mat-label>Value</mat-label>
-          <input matInput type="number" [(ngModel)]="value">
-        </mat-form-field>
-        <mat-form-field class="example-margin">
-          <mat-label>Min value</mat-label>
-          <input matInput type="number" [(ngModel)]="min">
-        </mat-form-field>
-        <mat-form-field class="example-margin">
-          <mat-label>Max value</mat-label>
-          <input matInput type="number" [(ngModel)]="max">
-        </mat-form-field>
-        <mat-form-field class="example-margin">
-          <mat-label>Step size</mat-label>
-          <input matInput type="number" [(ngModel)]="step">
-        </mat-form-field>
-      </section>
-  
-      <section class="example-section">
-        <mat-checkbox class="example-margin" [(ngModel)]="thumbLabel">Show thumb label</mat-checkbox>
-      </section>
-  
-      <section class="example-section">
-        <mat-checkbox class="example-margin" [(ngModel)]="vertical">Vertical</mat-checkbox>
-        <mat-checkbox class="example-margin" [(ngModel)]="invert">Inverted</mat-checkbox>
-      </section>
-  
-      <div>
-        <label>Allgemeine Background Color </label>
-        <input [(colorPicker)]="backgroundColor" [style.background]="backgroundColor"/>
-      </div>
+  <mat-card-content>
+    <h2 class="example-h2">Slider configuration</h2>
 
-      <div>
-        <label>Fill-Color des Sliders</label>
-        <input [(colorPicker)]="fillColor" [style.background]="fillColor"/>
-      </div>
-    </mat-card-content>
-  </mat-card>
-  <h3>Preview</h3>
-  <mat-card style="display: flex">
+    <section class="example-section">
+      <mat-form-field class="example-margin">
+        <mat-label>Value</mat-label>
+        <input matInput type="number" [(ngModel)]="value">
+      </mat-form-field>
+      <mat-form-field class="example-margin">
+        <mat-label>Min value</mat-label>
+        <input matInput type="number" [(ngModel)]="min">
+      </mat-form-field>
+      <mat-form-field class="example-margin">
+        <mat-label>Max value</mat-label>
+        <input matInput type="number" [(ngModel)]="max">
+      </mat-form-field>
+      <mat-form-field class="example-margin">
+        <mat-label>Step size</mat-label>
+        <input matInput type="number" [(ngModel)]="step">
+      </mat-form-field>
+      <mat-button-toggle-group name="fontStyle" aria-label="Font Style" [value]="0">
+        <mat-button-toggle [value]="0" (click)="colorMode = 0" value="bold">Standard</mat-button-toggle>
+        <mat-button-toggle [value]="1" (click)="colorMode = 1" value="bold">Blau</mat-button-toggle>
+        <mat-button-toggle [value]="2" (click)="colorMode = 2" value="bold">Rot</mat-button-toggle>
+      </mat-button-toggle-group>
+    </section>
+
+    <section class="example-section">
+      <mat-checkbox class="example-margin" [(ngModel)]="thumbLabel">Show thumb label</mat-checkbox>
+    </section>
+
+    <section class="example-section">
+      <mat-checkbox class="example-margin" [(ngModel)]="vertical">Vertical</mat-checkbox>
+      <mat-checkbox class="example-margin" [(ngModel)]="invert">Inverted</mat-checkbox>
+    </section>
+  </mat-card-content>
+</mat-card>
+<mat-card>
+<h3>Preview</h3>
+<div style="display: flex;">
     <div [formGroup]="leftGroup">
       <mat-form-field  appearance="outline">
-        <input matInput [formControlName]="'left'" placeholder="Text links">
-       </mat-form-field>
+        <input matInput [formControlName]="'left'" placeholder="{{vertical ? 'Text oben' : 'Text links'}}">
+        </mat-form-field>
     </div>
     <div>
       <app-slider
           [disabled]="disabled"
           (change)="setSliderValue($event)"
-          [invert]="invert"
           [max]="max"
           [min]="min"
           [step]="step"
+          [colorMode]="colorMode"
           [showTicks]="false"
+          [invert]="invert"
           [thumbLabel]="thumbLabel"
-          [vertical]="vertical"
-          [left]="left"
-          [right]="right"
           #slider>
       </app-slider>
   </div>
-    <div [formGroup]="rightGroup">
-      <mat-form-field  appearance="outline">
-        <input matInput [formControlName]="'right'" placeholder="Text rechts">
-       </mat-form-field>
-    </div>
-  </mat-card>
-  <button mat-raised-button (click)="addSlider()">Diesen Slider hinzufügen</button>
+  <div [formGroup]="rightGroup">
+    <mat-form-field  appearance="outline">
+      <input matInput [formControlName]="'right'" placeholder="{{vertical ? 'Text unten' : 'Text rechts'}}">
+      </mat-form-field>
+  </div>
+</div>
+<div style="display: flex;">
+  <button mat-raised-button style="float: left;" (click)="addSlider()">Diesen Slider hinzufügen</button>
+</div>
+</mat-card>

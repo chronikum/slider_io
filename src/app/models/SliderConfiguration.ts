@@ -6,7 +6,7 @@ export interface SliderConfiguration {
     min?: number,
     step?: number,
     fillColor?: string,
-    markColor?: string,
+    colorMode: number,
     value?: number,
     tickInterval?: number
     invert?: boolean,
