@@ -8,6 +8,10 @@ Pull requests are welcome
 
 ## Start development server
 ``ng serve``
+
+## Roadmap / Upcoming features
+
+Rewrite in rust, save sliders in blockchain
 ## License
 Licensed under MIT-License.
 
