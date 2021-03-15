@@ -147,19 +147,19 @@ $mat-dark-theme-background: (
 // Theme Config
 
 body {
-  --primary-color: #3371cc;
-  --primary-lighter-color: #c2d4f0;
-  --primary-darker-color: #2054b9;
+  --primary-color: #205b9e;
+  --primary-lighter-color: #bccee2;
+  --primary-darker-color: #134082;
   --text-primary-color: #{$light-primary-text};
   --text-primary-lighter-color: #{$dark-primary-text};
   --text-primary-darker-color: #{$light-primary-text};
 }
 
 $mat-primary: (
-  main: #3371cc,
-  lighter: #c2d4f0,
-  darker: #2054b9,
-  200: #3371cc, // For slide toggle,
+  main: #205b9e,
+  lighter: #bccee2,
+  darker: #134082,
+  200: #205b9e, // For slide toggle,
   contrast : (
     main: $light-primary-text,
     lighter: $dark-primary-text,
@@ -169,19 +169,19 @@ $mat-primary: (
 $theme-primary: mat-palette($mat-primary, main, lighter, darker);
 
 body {
-  --accent-color: #a0ce4e;
-  --accent-lighter-color: #e3f0ca;
-  --accent-darker-color: #84bc35;
+  --accent-color: #6dc66a;
+  --accent-lighter-color: #d3eed2;
+  --accent-darker-color: #50b14d;
   --text-accent-color: #{$dark-primary-text};
   --text-accent-lighter-color: #{$dark-primary-text};
   --text-accent-darker-color: #{$dark-primary-text};
 }
 
 $mat-accent: (
-  main: #a0ce4e,
-  lighter: #e3f0ca,
-  darker: #84bc35,
-  200: #a0ce4e, // For slide toggle,
+  main: #6dc66a,
+  lighter: #d3eed2,
+  darker: #50b14d,
+  200: #6dc66a, // For slide toggle,
   contrast : (
     main: $dark-primary-text,
     lighter: $dark-primary-text,
@@ -190,22 +190,20 @@ $mat-accent: (
 );
 $theme-accent: mat-palette($mat-accent, main, lighter, darker);
 
-
-
 body {
-  --warn-color: #ff0000;
-  --warn-lighter-color: #ffb3b3;
-  --warn-darker-color: #ff0000;
+  --warn-color: #d83d2f;
+  --warn-lighter-color: #f3c5c1;
+  --warn-darker-color: #c8271d;
   --text-warn-color: #{$light-primary-text};
   --text-warn-lighter-color: #{$dark-primary-text};
   --text-warn-darker-color: #{$light-primary-text};
 }
 
 $mat-warn: (
-  main: #ff0000,
-  lighter: #ffb3b3,
-  darker: #ff0000,
-  200: #ff0000, // For slide toggle,
+  main: #d83d2f,
+  lighter: #f3c5c1,
+  darker: #c8271d,
+  200: #d83d2f, // For slide toggle,
   contrast : (
     main: $light-primary-text,
     lighter: $dark-primary-text,
@@ -216,7 +214,6 @@ $theme-warn: mat-palette($mat-warn, main, lighter, darker);;
 
 $theme: mat-light-theme($theme-primary, $theme-accent, $theme-warn);
 $altTheme: mat-dark-theme($theme-primary, $theme-accent, $theme-warn);
-
 
 // Theme Init
 @include angular-material-theme($theme);
@@ -247,3 +244,4 @@ $altTheme: mat-dark-theme($theme-primary, $theme-accent, $theme-warn);
     font-family: 'Roboto';
   }
 }
+
