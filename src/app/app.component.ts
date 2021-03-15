@@ -61,9 +61,11 @@ export class AppComponent implements OnInit {
           link.download = 'slides.png';
           link.href = dataUrl;
           link.click();
+          this.presentationMode = true;
         })
         .catch((error: any) => {
-          console.error('oops, something went wrong!', error);
+          alert("Es ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.")
+          this.presentationMode = true;
         });
     }, 1000);
   }
@@ -79,9 +81,11 @@ export class AppComponent implements OnInit {
           link.download = 'slides.svg';
           link.href = dataUrl;
           link.click();
+          this.presentationMode = true;
         })
         .catch((error: any) => {
-          console.error('oops, something went wrong!', error);
+          alert("Es ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.")
+          this.presentationMode = true;
         });
     }, 1000);
   }
