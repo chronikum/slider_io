@@ -1,7 +1,8 @@
 <app-browser-banner></app-browser-banner>
 <p>
   <mat-toolbar>
-    <span>ZfM Slider Creator</span>
+    <img matSuffix src="./assets/logo.jpg" style="height: 40px; float: right; padding-right: 15px;">
+    <span> ZfM Slider Creator</span>
   </mat-toolbar>
 </p>
 <mat-card>
@@ -22,7 +23,7 @@
         [max]="slider.max || 100"
         [min]="slider.min || 0"
         [step]="slider.step || 1"
-        [showTicks]="false"
+        [autoTick]="slider.autoTick || false"
         [sliderId]="slider.sliderId"
         [value]="slider.value || 0"
         (deleteMe)="deleteSlider($event)"

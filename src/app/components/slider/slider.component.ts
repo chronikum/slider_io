@@ -10,19 +10,19 @@ import { MatSlider, MatSliderModule } from '@angular/material/slider';
 export class SliderComponent implements OnInit {
 
   @Input() control?: FormControl;
-  @Input() autoTicks = false;
   @Input() colorMode = 0;
   @Input() disabled = false;
   @Input() invert = false;
   @Input() max = 100;
   @Input() min = 0;
-  @Input() showTicks = false;
+  @Input() showTicks: boolean = false;
   @Input() step = 1;
   @Input() thumbLabel = false;
   @Input() value = 0;
   @Input() vertical = false;
   @Input() tickInterval = 1;
   @Input() left: string = "";
+  @Input() autoTick: boolean = false;
   @Input() right: string = "";
   @Input() presentationMode: boolean = false;
   @Input() sliderId: number = -1;
@@ -34,6 +34,14 @@ export class SliderComponent implements OnInit {
 
   ngOnInit(): void {
     console.log("VAL: " + this.value);
+  }
+
+  getSliderTickInterval(): number | 'auto' {
+    console.log("TICKS: " + this.autoTick)
+    if (this.autoTick) {
+      return 'auto';
+    }
+    return 0;
   }
 
   /**

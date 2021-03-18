@@ -10,6 +10,7 @@
         [color]="getColorMode()"
         [min]="min"
         [step]="step"
+        [tickInterval]="getSliderTickInterval()"
         [thumbLabel]="thumbLabel"
         (change)="valueChange($event)"
         [vertical]="vertical">

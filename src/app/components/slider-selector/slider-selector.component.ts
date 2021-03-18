@@ -35,7 +35,6 @@ export class SliderSelectorComponent implements OnInit {
   invert = false;
   max = 100;
   min = 0;
-  showTicks = false;
   step = 1;
   thumbLabel = false;
   value = 0;
@@ -78,7 +77,7 @@ export class SliderSelectorComponent implements OnInit {
 
 
   getSliderTickInterval(): number | 'auto' {
-    if (this.showTicks) {
+    if (this.autoTicks) {
       return this.autoTicks ? 'auto' : this.tickInterval;
     }
 
@@ -89,18 +88,6 @@ export class SliderSelectorComponent implements OnInit {
    * Add slider configuration and fire event
    */
   addSlider() {
-    // left?: string,
-    // right?: string,
-    // vertical?: boolean,
-    // max?: number,
-    // min?: number,
-    // step?: number,
-    // fillColor?: string,
-    // markColor?: string,
-    // value?: number,
-    // tickInterval?: number
-    // invert?: boolean,
-    // thumbLabel?: boolean
     let sliderConfiguration: SliderConfiguration = {
       sliderId: Math.floor(Math.random() * 87124687),
       vertical: this.vertical,
@@ -108,6 +95,7 @@ export class SliderSelectorComponent implements OnInit {
       min: this.min,
       step: this.step,
       value: this.value,
+      autoTick: this.autoTicks,
       invert: this.invert,
       thumbLabel: this.thumbLabel,
       colorMode: this.colorMode,

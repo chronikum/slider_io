@@ -6,6 +6,7 @@ export interface SliderConfiguration {
     max?: number,
     min?: number,
     step?: number,
+    autoTick?: boolean,
     fillColor?: string,
     colorMode: number,
     value?: number,
